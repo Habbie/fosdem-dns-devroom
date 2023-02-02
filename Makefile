@@ -19,6 +19,9 @@ all: $(PROJNAME).pdf
 
 # CUSTOM BUILD RULES
 
+#data.csv:
+#	PENTA_USERNAME=X PENTA_PASSWORD=X PENTA_DEVROOM_ID=1264 ~/go/bin/penta-export > data.csv
+
 %.tex: %.j2 data.csv make-tex.py
 	./make-tex.py $< > $@
 
