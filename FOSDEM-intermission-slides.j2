@@ -1,0 +1,59 @@
+\documentclass[aspectratio=169]{beamer}
+
+\usepackage[english]{babel}
+
+\usetheme[
+  sectionpage=none,
+  subsectionpage=none,
+  numbering=none,
+  progressbar=none,
+  titleformat=smallcaps
+]{metropolis}
+
+\newif\iflight
+\lighttrue % Uncomment for a light theme
+
+% Some Open-Xchange colors
+\definecolor{OXOrange}{RGB}{230,110,0}
+\definecolor{OXGraphiteBlack}{RGB}{45,45,45}
+\definecolor{OXSilverGrey}{RGB}{220,220,220}
+\definecolor{OXGrey}{RGB}{135,135,135}
+\definecolor{PowerDNSOrange}{RGB}{233,102,25}
+
+\setbeamercolor{progress bar}{fg=PowerDNSOrange, bg=OXGrey}
+
+\iflight
+  \setbeamercolor{palette primary}{bg=OXGraphiteBlack}
+\else
+  \usecolortheme{owl} % Dark theme
+\fi
+
+\metroset{block=fill}
+
+% PDF niceness
+\usepackage{hyperref}
+
+% No nav symbols on the PDF
+\beamertemplatenavigationsymbolsempty
+
+\title{FOSDEM 2020 --- Intermission Slides}
+\author{}
+\date{\today}
+
+\begin{document}
+{% for talk in talks %}
+  \begin{frame}[plain]
+    \begin{center}
+      {\LARGE FOSDEM 2020 DNS DevRoom}
+      \\
+      \LARGE{Next up at {{ talk.time }} }
+    \end{center}
+    \vfill
+    {\LARGE {{ talk.title }} }
+    {% if talk.subtitle|length > 1 %}
+    {\large {{ talk.subtitle }} }
+    {% endif %}
+    \hfill --- {\large {{ talk.presenter }} }
+  \end{frame}
+{% endfor %}
+\end{document}
