@@ -12,7 +12,8 @@ if __name__ == '__main__':
         content.sort(key=operator.itemgetter(12))     # sort by start time
         for row in content:
             if row[7] == 'accepted' and row[8] == 'confirmed':
-                talks.append({'title': row[1], 'subtitle': row[2],
+                title = row[1].replace("AMENDMENT ", "")
+                talks.append({'title': title, 'subtitle': row[2],
                               'presenter': row[9]+' '+row[11], 'time': row[12]})
 
     loader = FileSystemLoader(searchpath="./")
