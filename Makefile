@@ -22,7 +22,7 @@ all: $(PROJNAME).pdf
 #data.csv:
 #	PENTA_USERNAME=X PENTA_PASSWORD=X PENTA_DEVROOM_ID=1264 ~/go/bin/penta-export > data.csv
 
-%.tex: %.j2 data.csv make-tex.py
+%.tex: %.j2 data.json make-tex.py
 	./make-tex.py $< > $@
 
 # MAIN LATEXMK RULE

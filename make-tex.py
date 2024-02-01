@@ -1,20 +1,21 @@
 #!/usr/bin/env python3
 
 from jinja2 import FileSystemLoader, Environment
-import csv
+import json
 import operator
 
 if __name__ == '__main__':
     talks = list()
-    with open('data.csv') as csvfile:
-        reader = csv.reader(csvfile)
-        content = list(reader)[1:]                    # turn into list and skip header
-        content.sort(key=operator.itemgetter(12))     # sort by start time
+    with open('data.json') as jsonfile:
+        # print(jsonfile)
+        content = json.load(jsonfile)
+        # print(data)
+        # content.sort(key=operator.itemgetter('Start', ''))     # sort by start time
         for row in content:
-            if row[7] == 'accepted' and row[8] == 'confirmed':
-                title = row[1].replace("AMENDMENT ", "")
-                talks.append({'title': title, 'subtitle': row[2],
-                              'presenter': row[9]+' '+row[11], 'time': row[12]})
+            if row['Proposal state'] == 'confirmed' and row['Track']['en'] == 'DNS devroom':
+                title = row['Proposal title']
+                talks.append({'title': title, 'subtitle': "subtitle?",
+                              'presenter': ', '.join(row['Speaker names']), 'time': row['Start']})
 
     loader = FileSystemLoader(searchpath="./")
     env = Environment(loader=loader)
