@@ -14,8 +14,9 @@ if __name__ == '__main__':
         for row in content:
             if row['Proposal state'] == 'confirmed' and row['Track']['en'] == 'DNS devroom':
                 title = row['Proposal title']
-                talks.append({'title': title, 'subtitle': "subtitle?",
-                              'presenter': ', '.join(row['Speaker names']), 'time': row['Start']})
+                talks.append({'title': title, 'subtitle': "",
+                              'presenter': ', '.join(row['Speaker names']),
+                              'time': row['Start'][11:16]})  # gross hack to extract HH:MM
 
     talks.sort(key=operator.itemgetter('time'))
 
