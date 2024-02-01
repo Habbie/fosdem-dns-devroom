@@ -17,6 +17,8 @@ if __name__ == '__main__':
                 talks.append({'title': title, 'subtitle': "subtitle?",
                               'presenter': ', '.join(row['Speaker names']), 'time': row['Start']})
 
+    talks.sort(key=operator.itemgetter('time'))
+
     loader = FileSystemLoader(searchpath="./")
     env = Environment(loader=loader)
     template = env.get_template('FOSDEM-intermission-slides.j2')
