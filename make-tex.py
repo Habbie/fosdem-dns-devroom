@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 from jinja2 import FileSystemLoader, Environment
+import datetime
 import json
 import operator
 
@@ -16,7 +17,7 @@ if __name__ == '__main__':
                 title = row['Proposal title']
                 talks.append({'title': title, 'subtitle': "",
                               'presenter': ', '.join(row['Speaker names']),
-                              'time': row['Start'][11:16]})  # gross hack to extract HH:MM
+                              'time': datetime.datetime.fromisoformat(row['Start']).astimezone().strftime("%H:%M")})
 
     talks.sort(key=operator.itemgetter('time'))
 
