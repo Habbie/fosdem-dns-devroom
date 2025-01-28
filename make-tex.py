@@ -13,7 +13,7 @@ if __name__ == '__main__':
         # print(data)
         # content.sort(key=operator.itemgetter('Start', ''))     # sort by start time
         for row in content:
-            if row['Proposal state'] == 'confirmed' and row['Track']['en'] == 'DNS devroom':
+            if row['Proposal state'] == 'confirmed' and row['Track']['en'] == 'DNS':
                 title = row['Proposal title']
                 talks.append({'title': title, 'subtitle': "",
                               'presenter': ', '.join(row['Speaker names']),
