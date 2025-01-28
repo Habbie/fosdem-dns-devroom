@@ -54,6 +54,17 @@
     {\large {{ talk.subtitle }} }
     {% endif %}
     \hfill --- {\large {{ talk.presenter }} }
+
+    \begin{columns}
+      \begin{column}{.2\textwidth}
+        \includegraphics[width=\textwidth]{qr-code.pdf}
+      \end{column}
+      \begin{column}{.8\textwidth}
+        \begin{block}{Waiting?}
+          Help make the importance of FOSS in DNS infrastructure visible to policy makers by responding to this anonymous survey.
+        \end{block}
+      \end{column}
+    \end{columns}
   \end{frame}
 {% endfor %}
 \end{document}
