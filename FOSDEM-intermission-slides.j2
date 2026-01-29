@@ -36,7 +36,7 @@
 % No nav symbols on the PDF
 \beamertemplatenavigationsymbolsempty
 
-\title{FOSDEM 2025 --- Intermission Slides}
+\title{FOSDEM 2026 --- Intermission Slides}
 \author{}
 \date{\today}
 
@@ -44,7 +44,7 @@
 {% for talk in talks %}
   \begin{frame}[plain]
     \begin{center}
-      {\LARGE FOSDEM 2025 DNS DevRoom}
+      {\LARGE FOSDEM 2026 DNS DevRoom}
       \\
       \LARGE{Next up at {{ talk.time }} }
     \end{center}
@@ -54,17 +54,6 @@
     {\large {{ talk.subtitle }} }
     {% endif %}
     \hfill --- {\large {{ talk.presenter }} }
-
-    \begin{columns}
-      \begin{column}{.2\textwidth}
-        \includegraphics[width=\textwidth]{qr-code.pdf}
-      \end{column}
-      \begin{column}{.8\textwidth}
-        \begin{block}{Waiting?}
-          Help make the importance of FOSS in DNS infrastructure visible to policy makers by responding to this anonymous survey.
-        \end{block}
-      \end{column}
-    \end{columns}
   \end{frame}
 {% endfor %}
 \end{document}
